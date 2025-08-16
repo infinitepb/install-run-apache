@@ -1,0 +1,15 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for install-run-apache
+- name: install apache2
+  ansible.builtin.apt:
+    name: apache2 
+    state: present
+    update_cache: yes
+- name: copy index.html
+  ansible.builtin.copy:
+    src: /home/ubuntu/Ansible/index.html
+    dest: /var/www/html/index.html
+    owner: root
+    group: root 
+    mode: '0644'
